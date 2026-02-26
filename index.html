@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>26/3 - Nhiệt Huyết Tuổi Trẻ</title>
+
+<style>
+:root{
+  --green:#19d37b;
+  --cyan:#3fdcff;
+  --text:rgba(255,255,255,.96);
+  --muted:rgba(255,255,255,.75);
+  --glass:rgba(255,255,255,.10);
+  --stroke:rgba(255,255,255,.18);
+  --radius:18px;
+  --shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+*{box-sizing:border-box}
+a{color:inherit;text-decoration:none}
+
+body{
+  margin:0;
+  min-height:100vh;
+  display:flex;
+  flex-direction:column;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  color:var(--text);
+  position:relative;
+  overflow-x:hidden;
+}
+
+/* Background */
+body::before{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:url("bg.jpg") center/cover no-repeat;
+  filter:blur(0.5px);
+  transform:scale(1.02);
+  z-index:-2;
+}
+
+body::after{
+  content:"";
+  position:fixed;
+  inset:0;
+  background:linear-gradient(rgba(6,16,27,.55),rgba(5,38,58,.6));
+  z-index:-1;
+}
+
+/* HEADER */
+header{
+  backdrop-filter:blur(12px);
+  background:rgba(0,0,0,.35);
+  border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.nav{
+  max-width:1100px;
+  margin:0 auto;
+  padding:14px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+
+.brand{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-weight:800;
+}
+
+.dot{
+  width:10px;height:10px;border-radius:50%;
+  background:linear-gradient(135deg,var(--green),var(--cyan));
+}
+
+.menu{
+  display:flex;
+  gap:10px;
+}
+
+.menu a{
+  padding:8px 12px;
+  border-radius:12px;
+  color:var(--muted);
+}
+
+.menu a:hover{
+  background:rgba(255,255,255,.08);
+  color:#fff;
+}
+
+.active{
+  background:rgba(255,255,255,.12);
+  border:1px solid rgba(255,255,255,.15);
+  color:#fff;
+}
+
+/* MAIN */
+.wrap{
+  flex:1;
+  max-width:1100px;
+  margin:0 auto;
+  padding:30px 20px 60px;
+}
+
+.card{
+  background:var(--glass);
+  border:1px solid var(--stroke);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  backdrop-filter:blur(12px);
+}
+
+.hero{
+  padding:30px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:20px;
+}
+
+.kicker{
+  display:inline-block;
+  padding:8px 14px;
+  border-radius:999px;
+  font-size:14px;
+  background:rgba(0,0,0,.3);
+  border:1px solid rgba(255,255,255,.15);
+  color:var(--muted);
+}
+
+h1{
+  margin:16px 0 12px;
+  font-size:46px;
+}
+
+.sub{
+  color:var(--muted);
+  line-height:1.6;
+  max-width:60ch;
+}
+
+.actions{
+  margin-top:20px;
+  display:flex;
+  gap:12px;
+  flex-wrap:wrap;
+}
+
+.btn{
+  padding:10px 16px;
+  border-radius:14px;
+  border:1px solid rgba(255,255,255,.2);
+  background:rgba(255,255,255,.1);
+  cursor:pointer;
+  transition:.2s;
+}
+
+.btn:hover{
+  transform:translateY(-2px);
+}
+
+.primary{
+  background:linear-gradient(135deg,var(--green),var(--cyan));
+  color:#062015;
+  border:none;
+  font-weight:700;
+}
+
+/* LOGO */
+.logo-box{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+}
+
+.logo-box img{
+  width:320px;
+  max-width:100%;
+  border-radius:24px;
+  box-shadow:0 30px 80px rgba(0,0,0,.4);
+  border:1px solid rgba(255,255,255,.2);
+}
+
+/* SECTION */
+.section{
+  margin-top:20px;
+  padding:20px;
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:14px;
+  margin-top:14px;
+}
+
+.item{
+  padding:16px;
+  border-radius:16px;
+  background:rgba(0,0,0,.35);
+  border:1px solid rgba(255,255,255,.15);
+}
+
+.tag{
+  font-size:12px;
+  padding:6px 10px;
+  border-radius:999px;
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.15);
+  display:inline-block;
+  margin-bottom:10px;
+}
+
+/* FOOTER */
+.footer{
+  border-top:1px solid rgba(255,255,255,.15);
+  background:rgba(0,0,0,.45);
+  backdrop-filter:blur(10px);
+  padding:25px 20px;
+  text-align:center;
+  font-size:13px;
+  color:rgba(255,255,255,.85);
+}
+
+.footer-title{
+  font-weight:800;
+  margin-bottom:6px;
+}
+
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr}
+  .grid{grid-template-columns:1fr}
+  h1{font-size:34px}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand"><span class="dot"></span>26/3 • Nhiệt Huyết</div>
+    <div class="menu">
+      <a class="active" href="#">Trang chủ</a>
+      <a href="hoatdong.html">Hoạt động</a>
+      <a href="lichsuvaynghia.html">Lịch sử & Ý nghĩa</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+
+<section class="card hero">
+  <div>
+    <div class="kicker">🔥 26/3 • Nhiệt Huyết Tuổi Trẻ</div>
+    <h1>26/3 – Nhiệt Huyết Tuổi Trẻ</h1>
+    <p class="sub">
+      Tháng Ba là mùa của tinh thần xung kích và cống hiến.
+      Cùng nhau lan tỏa năng lượng tích cực và lưu lại dấu ấn đẹp của tập thể.
+    </p>
+
+    <div class="actions">
+      <a href="hoatdong.html" class="btn primary">Khám phá Hoạt động</a>
+      <a href="lichsuvaynghia.html" class="btn">Xem Lịch sử & Ý nghĩa</a>
+    </div>
+  </div>
+
+  <div class="logo-box">
+    <img src="logo.png" alt="Logo">
+  </div>
+</section>
+
+<!-- BOX 1 -->
+<section class="card section">
+  <div style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:12px;">
+    <div>
+      <div style="color:var(--muted);font-size:13px;">Điểm nhấn</div>
+      <h2 style="margin:6px 0 0;font-size:22px;">Cùng tạo nên một ngày 26/3 đáng nhớ</h2>
+    </div>
+    <a class="btn" href="hoatdong.html">Xem chi tiết →</a>
+  </div>
+
+  <div class="grid">
+    <div class="item">
+      <div class="tag">🎤 Văn nghệ</div>
+      <b>Giai điệu tuổi trẻ</b>
+      <p>Cháy hết mình trên sân khấu — rực rỡ và tự tin.</p>
+    </div>
+    <div class="item">
+      <div class="tag">🏆 Thể thao</div>
+      <b>Đoàn kết – Fair play</b>
+      <p>Thi đấu hết sức, chơi đẹp, gắn kết tập thể.</p>
+    </div>
+    <div class="item">
+      <div class="tag">🤝 Tình nguyện</div>
+      <b>Việc tốt mỗi ngày</b>
+      <p>Hành động nhỏ, ý nghĩa lớn — lan tỏa yêu thương.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BOX 2 -->
+<section class="card section">
+  <div style="display:flex;justify-content:space-between;align-items:end;flex-wrap:wrap;gap:12px;">
+    <div>
+      <div style="color:var(--muted);font-size:13px;">Chủ đề</div>
+      <h2 style="margin:6px 0 0;font-size:22px;">Lịch sử & Ý nghĩa 26/3</h2>
+    </div>
+    <a class="btn" href="lichsuvaynghia.html">Xem chi tiết →</a>
+  </div>
+
+  <div class="grid">
+    <div class="item">
+      <div class="tag">📖 Truyền thống</div>
+      <b>Hành trình hình thành</b>
+      <p>Khám phá quá trình ra đời và phát triển của Đoàn TNCS Hồ Chí Minh.</p>
+    </div>
+    <div class="item">
+      <div class="tag">🔥 Tinh thần</div>
+      <b>Xung kích – Sáng tạo</b>
+      <p>Giá trị cốt lõi tạo nên bản lĩnh thanh niên Việt Nam.</p>
+    </div>
+    <div class="item">
+      <div class="tag">🌟 Ý nghĩa</div>
+      <b>Tự hào & Tiếp bước</b>
+      <p>Tiếp nối truyền thống, xây dựng thế hệ trẻ bản lĩnh – trách nhiệm.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="footer-title">26/3 – Nhiệt Huyết Tuổi Trẻ</div>
+  <div>
+    Bản quyền thuộc về NHÓM 8 - 12A5 vui lòng không copy dưới mọi hình thức
+  </div>
+</footer>
+
+</body>
+</html>
